@@ -1,5 +1,6 @@
 class Controller {
-    constructor() {
+    constructor(router) {
+        this.router = router  //路由对象
         this.init()
     }
 
@@ -9,6 +10,7 @@ class Controller {
         this.msg = 'success' //返回msg
         this.hasErrors = false //请求验证是否有错误标志位
         this.code = 200 //返回的http code
+        this.meta = {}
     }
 }
 

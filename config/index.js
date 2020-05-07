@@ -14,5 +14,7 @@ module.exports = {
         port: process.env.REDIS_PORT
     },
 
-    redisExpire: process.env.REDIS_EXPIRE
+    redisExpire: process.env.REDIS_EXPIRE,
+    privateKey: process.env.PRIVATE_KEY,
+    tokenExpire: process.env.TOKEN_EXPIRE
 }

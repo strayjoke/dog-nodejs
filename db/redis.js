@@ -40,7 +40,7 @@ const setKey = (key, value, expire = dbConfig.redisExpire) => {
  * 
  * return new Promise
  */
-const getByKey = key => {
+const getKey = key => {
     return new Promise((resolve, reject) => {
         redisClient.get(key, (err, res) => {
             if (err) {
@@ -61,7 +61,7 @@ const getByKey = key => {
  * 
  * return new Promise
  */
-const deleteByKey = key => {
+const deleteKey = key => {
     return new Promise((resolve, reject) => {
         redisClient.del(key, (err, res) => {
             if (err) {
@@ -80,7 +80,7 @@ const deleteByKey = key => {
  * 
  *  return new Promise
  */
-const expireByKey = (key, expire = dbConfig.redisExpire) => {
+const expireKey = (key, expire = dbConfig.redisExpire) => {
     return new Promise((resolve, reject) => {
         redisClient.expire(key, expire, (err, res) => {
             if (err || res === null) {
@@ -99,16 +99,16 @@ const expireByKey = (key, expire = dbConfig.redisExpire) => {
  * 
  *  return new Promise 
  */
-const getAndExpireByKey = (key, expire = dbConfig.redisExpire) => {
-    const p1 = getByKey(key)
-    const p2 = expireByKey(key, expire)
+const getAndExpireKey = (key, expire = dbConfig.redisExpire) => {
+    const p1 = getKey(key)
+    const p2 = expireKey(key, expire)
     return Promise.all([p1, p2]).then(res => res[0])
 }
 
 module.exports = {
-    getByKey,
-    getAndExpireByKey,
+    getKey,
+    getAndExpireKey,
     setKey,
-    deleteByKey,
-    expireByKey
+    deleteKey,
+    expireKey
 }

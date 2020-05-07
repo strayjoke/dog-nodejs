@@ -1,7 +1,7 @@
 class Model {
-    constructor(pool, sqlExcute) {
+    constructor(pool, sqlExecute) {
         this.pool = pool
-        this.sqlExcute = sqlExcute
+        this.sqlExecute = sqlExecute
     }
 }
 
