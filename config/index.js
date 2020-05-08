@@ -1,6 +1,7 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+//mysql 和 redis 配置
 module.exports = {
     mysql: {
         host: process.env.MYSQL_HOST,

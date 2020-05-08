@@ -2,11 +2,13 @@ const Model = require('./model')
 const { pool, sqlExecute } = require('../db/mysql')
 
 class Auth extends Model {
+    //登录
     login(loginName) {
         let sql = `SELECT id, nick_name, password FROM sys_user WHERE login_name = ? `
         return this.sqlExecute(sql, loginName)
     }
 
+    //检查api
     checkApi(httpMethod, url, userId) {
         let sql = `SELECT COUNT(*) AS count FROM sys_menu m
           LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id

@@ -1,3 +1,4 @@
+//请求方法
 const HTTP_METHOD_CONFIG = {
     GET: 1,
     POST: 2,

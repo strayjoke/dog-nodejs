@@ -23,6 +23,7 @@ class Role extends Controller {
         })
     }
 
+    //获取角色关联的用户
     async getRelatedSysUsers(req, res, next) {
         this.init()
         let total = 0
