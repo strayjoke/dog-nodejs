@@ -19,9 +19,11 @@ router.get('/sysUsers', sysUserController.getSysUsers.bind(sysUserController))
 router.get('/menus', menuController.getMenus.bind(menuController))
 //角色
 router.get('/roles', roleController.getRoles.bind(roleController))
+router.get('/getRelatedSysUsers', roleController.getRelatedSysUsers.bind(roleController))
 //字典
 router.get('/dicts', dictController.getDicts.bind(dictController))
 router.get('/dictDatas', dictController.getDictDatas.bind(dictController))
+router.get('/dictTypes', dictController.getDictTypes.bind(dictController))
 
 
 module.exports = router;

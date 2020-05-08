@@ -27,6 +27,12 @@ class Dict extends Model {
 
         return this.sqlExecute(sql, type)
     }
+
+    getDictTypes() {
+        let sql = `SELECT dict_name, type FROM sys_dict  WHERE 1 `
+
+        return this.sqlExecute(sql)
+    }
 }
 
 module.exports = new Dict(pool, sqlExecute)

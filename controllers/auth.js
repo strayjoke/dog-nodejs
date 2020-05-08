@@ -1,3 +1,4 @@
+let jwt = require("jsonwebtoken")
 const Controller = require('./controller')
 const authModel = require('../models/auth')
 const menuModel = require('../models/menu')
@@ -36,14 +37,15 @@ class Auth extends Controller {
     }
 
     //退出
-    async logout() {
+    async logout(req, res, next) {
         this.init()
-        let token = req.get("Authorization") ? req.get("Authorization").substr(7) : ""
-        let { userId, loginName } = jwt.decode(token)
-        req.userId = userId //登录id
-        req.loginName = loginName //登录名
 
         try {
+            let token = req.get("Authorization") ? req.get("Authorization").substr(7) : ""
+            let { userId, loginName } = jwt.decode(token)
+            req.userId = userId //登录id
+            req.loginName = loginName //登录名
+
             await deleteKey(token.split('.')[2])
             await deleteKey(req.userId)
         } catch (err) {

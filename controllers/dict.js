@@ -46,6 +46,25 @@ class Dict extends Controller {
             msg: this.msg
         })
     }
+
+    //获取字典类型
+    async getDictTypes(req, res, next) {
+        this.init()
+        try {
+            const db = await dictModel.getDictTypes()
+            this.data = formatData(db)
+        } catch (error) {
+            this.code = 500
+            this.msg = '请求异常，请稍后重试'
+        }
+
+        res.status(this.code).json({
+            data: this.data,
+            msg: this.msg
+        })
+    }
+
+
 }
 
 module.exports = new Dict()
