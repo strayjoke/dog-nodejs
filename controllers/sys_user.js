@@ -4,6 +4,7 @@ const roleModel = require('../models/role')
 const { formatData } = require('../transformers/sys_user')
 
 class SysUser extends Controller {
+    //获取系统用户
     async getSysUsers(req, res, next) {
         this.init()
         let total = 0
