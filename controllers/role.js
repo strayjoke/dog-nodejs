@@ -17,7 +17,7 @@ class Role extends Controller {
             this.msg = '请求异常,请稍后重试'
         }
 
-        res.status(this.code).json({
+        return res.status(this.code).json({
             data: this.data,
             msg: this.msg
         })
@@ -43,7 +43,7 @@ class Role extends Controller {
             this.msg = '请求异常,请稍后重试'
         }
 
-        res.status(this.code).json({
+        return res.status(this.code).json({
             data: this.data,
             meta: this.meta,
             msg: this.msg
