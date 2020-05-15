@@ -14,6 +14,10 @@
 ```
 git clone git@github.com:strayjoke/dog-nodejs.git
 ```
+## 数据库初始化
+```
+/db/job-demo.sql 
+```
 
 ## 安装依赖
 ```
